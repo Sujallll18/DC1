@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to The Data Exchange – What’s Your Privacy Worth?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #007BFF;
+            color: white;
+        }
+        section {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+        .countdown {
+            font-size: 24px;
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to The Data Exchange – What’s Your Privacy Worth?</h1>
+</header>
+
+<section>
+    <h2>Market Price Table</h2>
+    <p>Here is the current market price for various data types:</p>
+    <table>
+        <tr>
+            <th>Data Type</th>
+            <th>Market Price</th>
+        </tr>
+        <tr>
+            <td>Personal Data</td>
+            <td>$50</td>
+        </tr>
+        <tr>
+            <td>Browsing History</td>
+            <td>$30</td>
+        </tr>
+        <tr>
+            <td>Location Data</td>
+            <td>$40</td>
+        </tr>
+        <tr>
+            <td>Health Data</td>
+            <td>$70</td>
+        </tr>
+    </table>
+</section>
+
+<section>
+    <h2>How It Works</h2>
+    <p>This is a live market where data is traded. Users can sell their data for a price determined by market demand. The prices fluctuate based on various factors, including the type of data and current market trends.</p>
+</section>
+
+<section>
+    <h2>Market Fluctuation Countdown</h2>
+    <div class="countdown" id="countdown"></div>
+</section>
+
+<script>
+    // Countdown Timer
+    let countdownDate = new Date().getTime() + 60000; // 1 minute countdown
+
+    let countdownFunction = setInterval(function() {
+        let now = new Date().getTime();
+        let distance = countdownDate - now;
+
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("countdown").innerHTML = minutes + "m " + seconds + "s ";
+
+        if (distance < 0) {
+            clearInterval(countdownFunction);
+            document.getElementById("countdown").innerHTML = "EXPIRED";
+        }
+    }, 1000);
+</script>
+
+</body>
+</html>
